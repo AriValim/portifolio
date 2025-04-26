@@ -1,0 +1,648 @@
+/* ========================= 
+   Variáveis e Configurações Globais
+   ========================= */
+
+:root {
+  /* Cores - Tema Dark (padrão) */
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #f5f5f5;
+  --text-secondary: #a0a0a0;
+  --accent-color: #64ffda;
+  --btn-primary: #64ffda;
+  --btn-primary-text: #121212;
+  --btn-secondary: transparent;
+  --btn-secondary-text: #64ffda;
+  --card-bg: #252525;
+  --card-border: #333333;
+
+  /* Cores dos ícones de tecnologia */
+  --html-color: #e34f26;
+  --css-color: #264de4;
+  --tailwind-color: #38b2ac;
+  --js-color: #f7df1e;
+  --react-color: #61dafb;
+  --typescript-color: #3178c6;
+  --nextjs-color: #ffffff;
+
+  /* Configurações de transição */
+  --transition-speed: 0.3s;
+}
+
+/* Tema Light */
+.light-theme {
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #e9e9e9;
+  --text-primary: #121212;
+  --text-secondary: #555555;
+  --accent-color: #0070f3;
+  --btn-primary: #0070f3;
+  --btn-primary-text: #ffffff;
+  --btn-secondary: transparent;
+  --btn-secondary-text: #0070f3;
+  --card-bg: #ffffff;
+  --card-border: #dddddd;
+
+  /* Algumas cores de ícones também mudam no tema claro */
+  --nextjs-color: #000000;
+}
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos base */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color var(--transition-speed),
+    color var(--transition-speed);
+}
+
+/* Container responsivo */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Tipografia */
+h1,
+h2,
+h3 {
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Seções */
+section {
+  padding: 100px 0;
+}
+
+/* ========================= 
+   Cabeçalho e Toggle de Tema
+   ========================= */
+
+header {
+  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-primary);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color var(--transition-speed);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.theme-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Switch de tema estilo trilho */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--accent-color);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--accent-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(32px);
+}
+
+/* ========================= 
+   Seção Hero com Efeito de Digitação
+   ========================= */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 80px;
+  background-color: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at top right,
+    rgba(100, 255, 218, 0.1),
+    transparent 50%
+  );
+  z-index: 0;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.typing-effect {
+  min-height: 70px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.typing-effect::after {
+  content: "|";
+  position: absolute;
+  right: -8px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.hero-cta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Botões */
+.btn {
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid transparent;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  text-decoration: none;
+}
+
+.primary-btn {
+  background-color: var(--btn-primary);
+  color: var(--btn-primary-text);
+}
+
+.primary-btn:hover {
+  box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+}
+
+.secondary-btn {
+  background-color: var(--btn-secondary);
+  color: var(--btn-secondary-text);
+  border: 2px solid var(--btn-secondary-text);
+}
+
+.secondary-btn:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+}
+
+/* ========================= 
+   Seção de Habilidades
+   ========================= */
+
+.skills {
+  background-color: var(--bg-secondary);
+  transition: background-color var(--transition-speed);
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.skill-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid var(--card-border);
+  transition: all var(--transition-speed);
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.skill-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+/* Cores dos ícones de tecnologia */
+.skill-card[data-tech="html"] .skill-icon {
+  color: var(--html-color);
+}
+
+.skill-card[data-tech="css"] .skill-icon {
+  color: var(--css-color);
+}
+
+.skill-card[data-tech="tailwind"] .skill-icon {
+  color: var(--tailwind-color);
+}
+
+.skill-card[data-tech="js"] .skill-icon {
+  color: var(--js-color);
+}
+
+.skill-card[data-tech="react"] .skill-icon {
+  color: var(--react-color);
+}
+
+.skill-card[data-tech="typescript"] .skill-icon {
+  color: var(--typescript-color);
+}
+
+.skill-card[data-tech="nextjs"] .skill-icon {
+  color: var(--nextjs-color);
+}
+
+/* Efeito de luminosidade ao passar o mouse */
+.skill-card:hover .skill-icon {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* ========================= 
+   Seção Sobre
+   ========================= */
+
+.about {
+  background-color: var(--bg-primary);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-text {
+  line-height: 1.8;
+}
+
+/* ========================= 
+   Seção de Contato
+   ========================= */
+
+.contact {
+  background-color: var(--bg-secondary);
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-top: 40px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  transition: all var(--transition-speed);
+}
+
+.contact-item:hover {
+  transform: translateX(10px);
+  background-color: var(--accent-color);
+  color: var(--bg-primary);
+}
+
+.contact-item i {
+  font-size: 1.5rem;
+}
+
+.contact-form {
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid var(--card-border);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: "Poppins", sans-serif;
+  resize: vertical;
+  transition: border-color var(--transition-speed);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+/* Elemento surpresa */
+.surprise-element {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+}
+
+.surprise-element.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.surprise-content {
+  background-color: var(--bg-secondary);
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px;
+  transform: scale(0.8);
+  transition: all 0.5s ease;
+}
+
+.surprise-element.active .surprise-content {
+  transform: scale(1);
+}
+
+.surprise-content i {
+  font-size: 3rem;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.code-animation {
+  margin: 20px 0;
+  text-align: left;
+  background-color: var(--bg-primary);
+  padding: 15px;
+  border-radius: 5px;
+  font-family: "Fira Code", monospace;
+  overflow: hidden;
+}
+
+.code-animation code {
+  display: block;
+  animation: typing 3s steps(50, end) infinite;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* ========================= 
+   Rodapé
+   ========================= */
+
+footer {
+  background-color: var(--bg-primary);
+  padding: 30px 0;
+  text-align: center;
+  border-top: 1px solid var(--card-border);
+}
+
+footer i {
+  color: #ff6b6b;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ========================= 
+   Responsividade
+   ========================= */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  section {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+
+  .theme-toggle {
+    justify-content: center;
+  }
+}

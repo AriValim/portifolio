@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio Dev Junior</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="dark-theme">
+  <!-- Cabeçalho com toggle de tema -->
+  <header>
+    <div class="container">
+      <div class="theme-toggle">
+        <span class="theme-label">Dark</span>
+        <label class="switch">
+          <input type="checkbox" id="theme-switcher">
+          <span class="slider"></span>
+        </label>
+        <span class="theme-label">Light</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Seção Hero com nome e efeito de digitação -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="typing-effect"></h1>
+      <p class="subtitle">Desenvolvedor Web Junior</p>
+      <div class="hero-cta">
+        <a href="#contato" class="btn primary-btn">Entre em contato</a>
+        <a href="#habilidades" class="btn secondary-btn">Ver habilidades</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Habilidades com ícones de tecnologias -->
+  <section id="habilidades" class="skills">
+    <div class="container">
+      <h2>Minhas Habilidades</h2>
+      <div class="skills-container">
+        <!-- Cada skill tem um ícone, título e uma descrição -->
+        <div class="skill-card" data-tech="html">
+          <div class="skill-icon">
+            <i class="fa-brands fa-html5"></i>
+          </div>
+          <h3>HTML5</h3>
+          <p>Estruturação semântica e acessível.</p>
+        </div>
+
+        <div class="skill-card" data-tech="css">
+          <div class="skill-icon">
+            <i class="fa-brands fa-css3-alt"></i>
+          </div>
+          <h3>CSS3</h3>
+          <p>Estilização e layouts responsivos.</p>
+        </div>
+
+        <div class="skill-card" data-tech="tailwind">
+          <div class="skill-icon">
+            <i class="fa-brands fa-css3"></i>
+          </div>
+          <h3>Tailwind CSS</h3>
+          <p>Desenvolvimento ágil com utility-first CSS.</p>
+        </div>
+
+        <div class="skill-card" data-tech="js">
+          <div class="skill-icon">
+            <i class="fa-brands fa-js"></i>
+          </div>
+          <h3>JavaScript</h3>
+          <p>Manipulação do DOM e lógica de programação.</p>
+        </div>
+
+        <!-- <div class="skill-card" data-tech="react">
+          <div class="skill-icon">
+            <i class="fa-brands fa-react"></i>
+          </div>
+          <h3>React</h3>
+          <p>Desenvolvimento de interfaces interativas.</p>
+        </div>
+
+        <div class="skill-card" data-tech="typescript">
+          <div class="skill-icon">
+            <i class="fa-brands fa-js-square"></i>
+          </div>
+          <h3>TypeScript</h3>
+          <p>JavaScript tipado para aplicações mais seguras.</p>
+        </div>
+
+        <div class="skill-card" data-tech="nextjs">
+          <div class="skill-icon">
+            <i class="fa-brands fa-react"></i>
+          </div>
+          <h3>Next.js</h3>
+          <p>Framework React para aplicações produtivas.</p>
+        </div>
+        </div>-->
+      </div>
+  </section>
+
+  <!-- Seção Sobre -->
+  <section id="sobre" class="about">
+    <div class="container">
+      <h2>Sobre Mim</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Olá! Sou um desenvolvedor web júnior apaixonado por criar experiências digitais interativas e funcionais. Comecei minha jornada na programação recentemente e estou sempre em busca de aprendizado e novos desafios.</p>
+
+          <p>Minha paixão pela lógica e pela resolução de problemas foi cultivada ao longo de mais de uma década como professor de matemática. Essa experiência me proporcionou um olhar analítico e uma capacidade de estruturar o pensamento que se traduzem naturalmente no desenvolvimento de código eficiente e bem organizado. Além disso, minha formação inicial em Sistemas de Informação me deu uma base conceitual sólida no universo da tecnologia, facilitando minha transição para esta área dinâmica.</p>
+
+          <p>Meu foco principal é o desenvolvimento front-end, explorando as possibilidades do HTML, CSS, JavaScript e suas tecnologias derivadas. Contudo, estou motivado a expandir meu leque de habilidades e mergulhar também no mundo do back-end.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Contato com elemento surpresa -->
+  <section id="contato" class="contact">
+    <div class="container">
+      <h2>Entre em Contato</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <a href="#">
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <p>arivalim@gmail.com</p>
+            </div>
+          </a>
+          <a href="https://github.com/AriValim">
+            <div class="contact-item">
+              <i class="fa-brands fa-github"></i>
+              <p>github.com/AriValim</p>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/arivelton-elias-valim-4a0880149/">
+            <div class="contact-item">
+              <i class="fa-brands fa-linkedin"></i>
+              <p>linkedin.com/in/arivelton</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Nome</label>
+              <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Mensagem</label>
+              <textarea id="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn primary-btn" id="submitBtn">Enviar Mensagem</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Elemento surpresa - aparece quando o formulário é enviado -->
+      <div class="surprise-element" id="surpriseElement">
+        <div class="surprise-content">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <h3>Obrigado pelo contato!</h3>
+          <p>Atualmente em fase de imersão e aprimoramento contínuo em tecnologias web. Em breve, demonstrações práticas de soluções e projetos.</p>
+          <div class="code-animation">
+            <pre><code>
+while(true) {
+    console.log("Muito obrigado! 🚀");
+    await new Promise(resolve => 
+        setTimeout(resolve, 1000)
+    );
+}
+                        </code></pre>
+          </div>
+          <button class="btn secondary-btn" id="closeBtn">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="current-year"></span> - Desenvolvido com <i class="fa-solid fa-heart"></i> por Arivelton Elias Valim</p>
+    </div>
+  </footer>
+
+  <!-- Script JavaScript -->
+  <script src="script.js"></script>
+</body>
+
+</html>
